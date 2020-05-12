@@ -1,24 +1,40 @@
 package com.campusnum.menu;
 
-import com.campusnum.Menu;
-import java.util.Scanner;
-
 public class StartMenu extends Menu {
 
     @Override
     protected String[] getOptions() {
-        return new String[]{"Bienvenue!", "p -> Créer un personnage"};
+        return new String[]{
+                "                    ___====-_  _-====___ ",
+                "              __--^^^     /     \\     ^^^--_",
+                "             _-^         / (    ) \\         ^-_",
+                "            -           /  | ^^/|  \\           -",
+                "          _/           /   (♦::♦)   \\            _",
+                "         /            ((    \\||/     ))              ",
+                "       -               \\    (••)     /               -",
+                "      -                 \\  / '' \\  /                 -",
+                "     -                   \\/      \\/                   -",
+                "   / /|           /|     (        )      /|           || ",
+                "   |/ | / _/ _/ _/   _/  (   / |  )  / _/   _/ _/ _/  |  |",
+                "   `  |/  V  V  `    V  _(| |  | |)_/  V    '  V  V   |  '",
+                "      `   `  `       `  / | |  | |  |   '       '  '   '",
+                "                      <(  | |  | |  )>    ",
+                "                     <__\\_| |  | |_\\__>   ",
+                "                    ^^^^^ ^^^  ^^^ ^^^^^",
+                "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+                " ----------------------> BIENVENUE! <--------------------------",
+                " \n< J > --> JOUER"};
     }
 
     @Override
     protected void setUserChoice(String choice) {
-        if (choice.equals("p")) {
-            Menu createPerson = new CreatePersonMenu();
+        if (choice.equals("j")) {
+            Menu createPerson = new CharacterMenu();
             createPerson.displayMenu();
         } else if (choice.equals("q")) {
-            System.out.println("A bientôt!");
+            this.quitGame();
         } else {
-            System.out.println("Veuillez saisir une option valide");
+            wrongOption();
         }
     }
 }
